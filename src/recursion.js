@@ -313,14 +313,16 @@ var fibonacci = function(n) {
 // nthFibo(3); // 2
 var nthFibo = function(n, output = [0, 1]) {
   // base
+  // if n is negavive, return null
   if (n < 0) {
     return null;
   }
+  // if the length of the array is greater than or equal to n, return the nth place of the array
   if (output.length >= n) {
   return output[n]
 }
-console.log(output)
 // recursion
+// push a new variable based on the sum of the last two numbers in the output
 output.push(output[output.length - 2] + output[output.length - 1])
 return nthFibo(n, output)
 };
