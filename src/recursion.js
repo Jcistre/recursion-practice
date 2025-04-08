@@ -316,8 +316,8 @@ var nthFibo = function(n, output = [0, 1]) {
   if (n < 0) {
     return null;
   }
-  if (output.length === n) {
-  return output
+  if (output.length >= n) {
+  return output[n]
 }
 console.log(output)
 // recursion
