@@ -435,36 +435,36 @@ var numToText = function(str, output = []) {
     console.log(output)
     return output.join("");
   }
-  if (str[0] == /0-9/) {
-    switch (str[0]) {
-      case "0":
+  if (Number(str[0]) < 10 && str[0] !== " ") {
+    switch (Number(str[0])) {
+      case 0:
         output.push('zero');
         break;
-      case "1":
+      case 1:
         output.push('one');
         break;
-      case "2":
+      case 2:
         output.push('two');
         break;
-      case "3": 
+      case 3: 
       output.push('three');
         break;
-      case "4":
+      case 4:
         output.push('four');
         break;
-      case "5":
+      case 5:
         output.push('five');
         break;
-      case "6":
+      case 6:
         output.push('six');
         break;
-      case "7":
+      case 7:
         output.push('seven');
         break;
-      case "8":
+      case 8:
         output.push('eight');
         break;
-      case "9":
+      case 9:
         output.push('nine');
         break;
     }
