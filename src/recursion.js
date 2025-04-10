@@ -435,40 +435,39 @@ var numToText = function(str, output = []) {
     console.log(output)
     return output.join("");
   }
-  if (typeof Number(str[0]) === 'number' && Number(str[0]) !== NaN && Number(str[0]) < 10) {
+  if (str[0] == /0-9/) {
     switch (str[0]) {
-      case 0:
-        str[0] = 'zero';
+      case "0":
+        output.push('zero');
         break;
-      case 1:
-        str[0] = 'one';
+      case "1":
+        output.push('one');
         break;
-      case 2:
-        str[0] = 'two';
+      case "2":
+        output.push('two');
         break;
-      case 3: 
-        str[0] = 'three';
+      case "3": 
+      output.push('three');
         break;
-      case 4:
-        str[0] = 'four';
+      case "4":
+        output.push('four');
         break;
-      case 5:
-        str[0] = 'five';
+      case "5":
+        output.push('five');
         break;
-      case 6:
-        str[0] = 'six';
+      case "6":
+        output.push('six');
         break;
-      case 7:
-        str[0] = 'seven';
+      case "7":
+        output.push('seven');
         break;
-      case 8:
-        str[0] = 'eight';
+      case "8":
+        output.push('eight');
         break;
-      case 9:
-        str[0] = 'nine';
+      case "9":
+        output.push('nine');
         break;
     }
-    output.push(str[0])
   } else {
     output.push(str[0])
   }
