@@ -478,19 +478,65 @@ var numToText = function(str, output = []) {
 
 // 36. Return the number of times a tag occurs in the DOM.
 var tagCount = function(tag, node) {
+  
 };
 
 // 37. Write a function for binary search.
 // Sample array:  [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 // console.log(binarySearch(5)) will return '5'
 
-var binarySearch = function(array, target, min, max) {
+var binarySearch = function(array, target, min = 0, max = array.length -1) {
+  // Base case: If the start index exceeds the end index, the target is not found
+  if (min > max) {
+    return null;
+  }
+  // Calculate the middle index
+  const mid = Math.floor((min + max) / 2);
+  // If the middle element is the target, return its index
+  if (array[mid] === target) {
+    return mid;
+  }
+  // If the target is less than the middle element, search the left half recursively
+  if (target < array[mid]) {
+    return binarySearch(array, target, min, mid - 1);
+  }
+  // If the target is greater than the middle element, search the right half recursively
+  else {
+    return binarySearch(array, target, mid + 1, max);
+  }
 };
 
 // 38. Write a merge sort function.
 // Sample array:  [34,7,23,32,5,62]
 // Sample output: [5,7,23,32,34,62]
 var mergeSort = function(array) {
+  if (array.length <= 1) {
+    return array;
+  }
+
+  const mid = Math.floor(array.length / 2); // finds the middle index of array
+  const left = array.slice(0, mid);
+  const right = array.slice(mid);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 };
 
 
